@@ -32,5 +32,6 @@ class Student(Base):
     first_name = Column(String)
     last_name = Column(String)
     password = Column(String)
+    date_of_birth = Column(DateTime)
     created_at = Column(DateTime)
     updated_at = Column(DateTime)
