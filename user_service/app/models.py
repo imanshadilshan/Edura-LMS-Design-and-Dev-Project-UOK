@@ -1,10 +1,14 @@
-from pydantic import BaseModel, EmailStr, Field
-from datetime import datetime
+from sqlalchemy import Column, Integer, String, UUID, DateTime
+from db import Base
 
-class Admin(BaseModel):
-    name: str
-    user_name: str
-    email: EmailStr
-    password: str
-    created_at: datetime = Field(default_factory=datetime.utcnow)
-    updated_at: datetime = Field(default_factory=datetime.utcnow)
+
+class Admin(Base):
+    __tablename__ = "admins"
+
+    id = Column(UUID, primary_key=True, index=True)
+    username = Column(String, index=True, unique=True)
+    first_name = Column(String)
+    last_name = Column(String)
+    password = Column(String)
+    created_at = Column(DateTime)
+
