@@ -11,4 +11,3 @@ class Admin(Base):
     last_name = Column(String)
     password = Column(String)
     created_at = Column(DateTime)
-

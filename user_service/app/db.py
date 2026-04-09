@@ -1,15 +1,13 @@
-from pymongo import MongoClient
 import os
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker, declarative_base
 from dotenv import load_dotenv
 
 load_dotenv()
 
-MONGO_URL = os.getenv("MONGODB_URL")
+DATABASE_URL = os.getenv("DATABASE_URL")
 
-client = MongoClient(MONGO_URL)
-db = client["edura_users"]
+engine = create_engine(DATABASE_URL)
+SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 
-
-admin_tb = db["admins"]
-teacher_tb = db["teachers"]
-student_tb = db["students"]
+Base = declarative_base()
