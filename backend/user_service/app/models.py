@@ -6,7 +6,7 @@ class Admin(Base):
     __tablename__ = "admins"
 
     admin_id = Column(UUID, primary_key=True, index=True, unique=True)
-    username = Column(String, index=True, unique=True)
+    admin_username = Column(String, index=True, unique=True)
     first_name = Column(String)
     last_name = Column(String)
     password = Column(String)

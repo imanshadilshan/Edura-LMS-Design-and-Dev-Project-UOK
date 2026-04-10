@@ -1,13 +1,16 @@
 from pydantic import BaseModel
+import datetime
+from uuid import UUID
 
 class AdminCreate(BaseModel):
-    username: str
+    admin_username: str
     password: str
     first_name: str
     last_name: str
 
 class AdminResponse(BaseModel):
-    username: str
+    admin_id: UUID
+    admin_username: str
     first_name: str
     last_name: str
 
@@ -18,7 +21,22 @@ class TeacherCreate(BaseModel):
     password: str
 
 class TeacherResponse(BaseModel):
+    teacher_id: UUID
     teacher_username: str
     first_name: str
     last_name: str
 
+
+class StudentCreate(BaseModel):
+    student_username: str
+    first_name: str
+    last_name: str
+    password: str
+    date_of_birth: datetime.datetime
+
+class StudentResponse(BaseModel):
+    student_id : UUID
+    student_username: str
+    first_name: str
+    last_name: str
+    date_of_birth: datetime.datetime
