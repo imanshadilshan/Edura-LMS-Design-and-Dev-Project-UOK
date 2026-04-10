@@ -25,6 +25,7 @@ class TeacherResponse(BaseModel):
     teacher_username: str
     first_name: str
     last_name: str
+    status: bool
 
 
 class StudentCreate(BaseModel):
@@ -40,3 +41,4 @@ class StudentResponse(BaseModel):
     first_name: str
     last_name: str
     date_of_birth: datetime.datetime
+    status: bool
