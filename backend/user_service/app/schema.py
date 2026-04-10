@@ -11,5 +11,14 @@ class AdminResponse(BaseModel):
     first_name: str
     last_name: str
 
-# class TeacherCreate(BaseModel):
+class TeacherCreate(BaseModel):
+    teacher_username: str
+    first_name : str
+    last_name: str
+    password: str
+
+class TeacherResponse(BaseModel):
+    teacher_username: str
+    first_name: str
+    last_name: str
 
