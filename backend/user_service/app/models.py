@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, UUID, DateTime
+from sqlalchemy import Column, Integer, String, UUID, DateTime, Boolean
 from db import Base
 
 
@@ -6,7 +6,7 @@ class Admin(Base):
     __tablename__ = "admins"
 
     admin_id = Column(UUID, primary_key=True, index=True, unique=True)
-    username = Column(String, index=True, unique=True)
+    admin_username = Column(String, index=True, unique=True)
     first_name = Column(String)
     last_name = Column(String)
     password = Column(String)
@@ -21,6 +21,7 @@ class Teacher(Base):
     first_name = Column(String)
     last_name = Column(String)
     password = Column(String)
+    status = Column(Boolean, default=True)
     created_at = Column(DateTime)
     updated_at = Column(DateTime)
 
@@ -33,5 +34,6 @@ class Student(Base):
     last_name = Column(String)
     password = Column(String)
     date_of_birth = Column(DateTime)
+    status = Column(Boolean, default=True)
     created_at = Column(DateTime)
     updated_at = Column(DateTime)
