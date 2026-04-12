@@ -21,7 +21,8 @@ class Teacher(Base):
     first_name = Column(String)
     last_name = Column(String)
     password = Column(String)
-    status = Column(Boolean, default=True)
+    status = Column(Boolean, default=False)
+    activate_account = Column(Boolean, default=False)
     created_at = Column(DateTime)
     updated_at = Column(DateTime)
 
@@ -34,6 +35,7 @@ class Student(Base):
     last_name = Column(String)
     password = Column(String)
     date_of_birth = Column(DateTime)
-    status = Column(Boolean, default=True)
+    status = Column(Boolean, default=False) # account blocked  or unblocked
+    activate_account = Column(Boolean, default=False)  # otp validation
     created_at = Column(DateTime)
     updated_at = Column(DateTime)
