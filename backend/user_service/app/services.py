@@ -22,7 +22,9 @@ async def create_teacher(data: TeacherCreate):
     db.add(teacher)
     db.commit()
     db.refresh(teacher)
-    return teacher
+    return {"message": "teacher created successfully", "teacher_id": teacher.teacher_id, "otp": "send otp to teacher email"}
 
+async def teacher_otp_pool(teacher_id: str):
+    otp_pool = {}
 
 #async def send_teacher_otp(teacher_id: str, data: TeacherCreate):
