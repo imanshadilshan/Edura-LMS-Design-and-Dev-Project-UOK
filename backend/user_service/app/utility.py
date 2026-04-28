@@ -4,6 +4,7 @@ from fastapi.security import HTTPAuthorizationCredentials , HTTPBearer
 import os
 from dotenv import load_dotenv
 from passlib.context import CryptContext
+from sqlalchemy import UUID
 
 load_dotenv()
 
