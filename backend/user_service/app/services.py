@@ -1,11 +1,11 @@
-from sqlalchemy import Column
+from sqlalchemy import Column, UUID, delete
 
 from schema import TeacherCreate
 from db import get_db as db
 from utility import password_hash , password_compare
 from models import Teacher
 import datetime
-from sqlalchemy import UUID
+
 # teacher (create , update, )
 
 async def create_teacher(data: TeacherCreate):
