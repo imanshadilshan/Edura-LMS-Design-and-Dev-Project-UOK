@@ -54,8 +54,19 @@ async def update_teacher(data: TeacherCreate, teacher_id: UUID ):
         
     # )
     db.commit()
-    db.refresh()
+    db.refresh(teacher)
     return {
         "status": "200 OK",
         "message": "update successfully"
     }
+
+async def delete_teacher(teacher_id: UUID):
+    db.delete(Teacher).where(Teacher.teacher_id == teacher_id)
+    db.commit()
+    db.refersh()
+
+    return {
+        "status": "200 OK",
+        "message": "teacher delete successfully"
+    }
+
