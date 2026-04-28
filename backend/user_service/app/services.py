@@ -1,5 +1,5 @@
-from sqlalchemy import Column, UUID, delete
-
+from sqlalchemy import Column, UUID, delete, select
+from fastapi import HTTPException
 from schema import TeacherCreate
 from db import get_db as db
 from utility import password_hash , password_compare
@@ -37,7 +37,7 @@ async def update_teacher(data: TeacherCreate, teacher_id: UUID ):
 
     teacher = db.query(Teacher).filter(Teacher.teacher_id==teacher_id).first()
     if not teacher:
-        return {"message" : "teacher not found"}
+        return HTTPException(404, "teacher Not found")
     
     teacher.teacher_username= data.teacher_username
     teacher.first_name = data.first_name
@@ -70,3 +70,16 @@ async def delete_teacher(teacher_id: UUID):
         "message": "teacher delete successfully"
     }
 
+async def fetch_teacher(teacher_id):
+    teacher = select(Teacher).where(Teacher.teacher_id == teacher_id).first()
+    if not teacher:
+        raise HTTPException(404, "teacher not found")
+    
+    # res = {
+    #     teacher_id = 
+    # }
+    
+    return {
+        "status": "200 OK",
+        "data": teacher
+    }
