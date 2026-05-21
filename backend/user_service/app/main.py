@@ -49,3 +49,7 @@ async def student(student_id: UUID):
 @app.put("/student/{student_id}")
 async def student(student_id: UUID):
     return {"message": "student-update"}
+
+@app.delete("/student/{student_id}")
+async def student(student_id: UUID):
+    return {"message": "student-delete"}
