@@ -26,7 +26,7 @@ async def admin(admin_id: UUID):
 async def teacher(teacher: Teacher):
     return {"message": "teacher-data teacher create success fully"}
 @app.get("/teacher/{teacher_id}")
-async def user(teacher_id: UUID):
+async def teacher(teacher_id: UUID):
     return {"message": "teacher-create"}
 
 @app.put("/teacher/{teacher_id}")
@@ -36,3 +36,9 @@ async def teacher(teacher_id: UUID, teacher: Teacher):
 @app.delete("/teacher/{teacher_id}")
 async def teacher(teacher_id: UUID):
     return {"message": "teacher-delete"}
+
+# student endpoints
+
+@app.get("/student/{student_id}")
+async def student(student_id: UUID):
+    return {"message": "student-data "}
