@@ -32,3 +32,7 @@ async def user(teacher_id: UUID):
 @app.put("/teacher/{teacher_id}")
 async def teacher(teacher_id: UUID, teacher: Teacher):
     return {"message": "teacher-update"}
+
+@app.delete("/teacher/{teacher_id}")
+async def teacher(teacher_id: UUID):
+    return {"message": "teacher-delete"}
