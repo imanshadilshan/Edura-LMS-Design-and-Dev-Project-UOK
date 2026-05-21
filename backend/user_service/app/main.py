@@ -9,3 +9,7 @@ async def main():
 @app.get("/admin/{admin_id}")
 async def admin(admin_id: int):
     return {"message": "admin-data"}
+
+@app.put("/admin/{admin_id}")
+async def admin(admin_id: int):
+    return {"message": "admin-update"}
