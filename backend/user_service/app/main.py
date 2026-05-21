@@ -2,7 +2,7 @@ from uuid import UUID
 
 from fastapi import FastAPI
 
-from app.models import Teacher
+from app.models import Teacher, Student
 
 app = FastAPI()
 
@@ -39,6 +39,9 @@ async def teacher(teacher_id: UUID):
 
 # student endpoints
 
+@app.post("/student")
+async def student(student: Student):
+    return {"message": "student-created"}
 @app.get("/student/{student_id}")
 async def student(student_id: UUID):
     return {"message": "student-data "}
