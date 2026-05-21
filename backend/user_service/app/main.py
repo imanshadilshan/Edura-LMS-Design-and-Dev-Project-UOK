@@ -42,3 +42,7 @@ async def teacher(teacher_id: UUID):
 @app.get("/student/{student_id}")
 async def student(student_id: UUID):
     return {"message": "student-data "}
+
+@app.put("/student/{student_id}")
+async def student(student_id: UUID):
+    return {"message": "student-update"}
