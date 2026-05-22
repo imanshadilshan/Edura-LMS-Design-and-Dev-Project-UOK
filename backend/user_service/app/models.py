@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, UUID, DateTime, Boolean
-from db import Base
+from app.db import Base
 
 
 class Admin(Base):

@@ -3,6 +3,7 @@ from uuid import UUID
 from fastapi import FastAPI
 
 from app.models import Teacher, Student
+from app.schema import TeacherCreate, TeacherResponse, AdminCreate, AdminResponse, StudentCreate, StudentResponse
 
 app = FastAPI()
 
@@ -23,14 +24,14 @@ async def admin(admin_id: UUID):
 # teacher endpoints
 
 @app.post("/teacher")
-async def teacher(teacher: Teacher):
+async def teacher(teacher: TeacherCreate):
     return {"message": "teacher-data teacher create success fully"}
 @app.get("/teacher/{teacher_id}")
 async def teacher(teacher_id: UUID):
     return {"message": "teacher-create"}
 
 @app.put("/teacher/{teacher_id}")
-async def teacher(teacher_id: UUID, teacher: Teacher):
+async def teacher(teacher_id: UUID, teacher: TeacherCreate):
     return {"message": "teacher-update"}
 
 @app.delete("/teacher/{teacher_id}")
@@ -40,7 +41,7 @@ async def teacher(teacher_id: UUID):
 # student endpoints
 
 @app.post("/student")
-async def student(student: Student):
+async def student(student: StudentCreate):
     return {"message": "student-created"}
 @app.get("/student/{student_id}")
 async def student(student_id: UUID):
