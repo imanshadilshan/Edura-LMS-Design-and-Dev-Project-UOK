@@ -1,12 +1,21 @@
+from contextlib import asynccontextmanager
 from uuid import UUID
 
 from fastapi import FastAPI
 
 from app.models import Teacher, Student
 from app.schema import TeacherCreate, TeacherResponse, AdminCreate, AdminResponse, StudentCreate, StudentResponse
+from app.db import engine, Base
 
-app = FastAPI()
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # create tables
+    Base.metadata.create_all(bind=engine)
+    print("Tables created successfully")
 
+    yield
+    print("App is shutting down")
+app = FastAPI(lifespan=lifespan)
 @app.get("/")
 async def main():
     return {"message": "fastapi user_services"}

@@ -19,5 +19,5 @@ def get_db():
     finally:
         db.close()
 
-def create_session():
-    return SessionLocal()
+# def create_session():
+#     return SessionLocal()
