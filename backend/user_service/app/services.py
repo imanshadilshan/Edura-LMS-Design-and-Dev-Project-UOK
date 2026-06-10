@@ -1,12 +1,14 @@
 from sqlalchemy import Column, UUID, delete, select
 from fastapi import HTTPException
 from schema import TeacherCreate
-from db import get_db as db
+from db import create_session
 from utility import password_hash , password_compare
 from models import Teacher
 import datetime
 
 # teacher (create , update, )
+
+db = create_session()
 
 async def create_teacher(data: TeacherCreate):
     data.password = password_hash(data.password)
